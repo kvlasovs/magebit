@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pineapple</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="page">
+    <div class="page__inner">
+      <div class="page__info">
+
+        <header class="header">
+          <div class="header__inner">
+            <a class="logo" href="#">
+              <picture class="logo__img">
+                <source srcset="images/logo-mobile_pineapple.svg" media="(max-width: 375px)">
+                <img src="images/logo_pineapple.svg" alt="logo">
+              </picture> 
+            </a>
+            <nav class="menu">
+              <ul class="menu__list">
+                <li class="menu__list-item">
+                  <a class="menu__list-link" href="#">About</a>
+                </li>
+                <li class="menu__list-item">
+                  <a class="menu__list-link" href="#">How it works</a>
+                </li>
+                <li class="menu__list-item">
+                  <a class="menu__list-link" href="#">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        <div class="inner">
+          <div class="inner-inner">
+            <div class="subscription">
+              <h3 class="subscription__title subscription__title--main">Subscribe to newsletter</h3>
+              <p class="subscription__text subscription__text--main">
+                Subscribe to our newsletter and get 10% discount on pineapple glasses.
+              </p>
+              <form id="app" @submit="checkForm" method="post" action="insert.php">
+                <div class="subscription__input-wrapper subscription__input-wrapper--main">
+                  <input class="subscription__input" placeholder="Type your email address here…" name="email" v-model="email">
+                  <button type="submit" @click="handleSubmit" class="subscription__button" type="submit" value="Add">
+                    <svg class="arrow" width="24" height="14" viewBox="0 0 24 14">
+                      <path opacity="0.3" d="M17.7071 0.2929C17.3166 -0.0976334 16.6834 -0.0976334 16.2929 0.2929C15.9023 0.683403 15.9023 1.31658 16.2929 1.70708L20.5858 5.99999H1C0.447693 5.99999 0 6.44772 0 6.99999C0 7.55227 0.447693 7.99999 1 7.99999H20.5858L16.2929 12.2929C15.9023 12.6834 15.9023 13.3166 16.2929 13.7071C16.6834 14.0976 17.3166 14.0976 17.7071 13.7071L23.7071 7.70708C24.0977 7.31658 24.0977 6.6834 23.7071 6.2929L17.7071 0.2929Z" fill="#131821"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="subscription__errors">
+                  <p v-if="errors.length">
+                    <b>Please correct the following error(s):</b>
+                    <ul>
+                      <li v-for="error in errors">{{ error }}</li>
+                    </ul>
+                  </p>
+                  <p style="color: red" class="for-error terms-error" v-if="termsError">You have to agree the terms and privacy condition.</p>
+                </div>
+                <div class="subscription__checkbox-wrapper">
+                  <label class="subscription__checkbox-label container">
+                    <input class="subscription__checkbox checkbox" type="checkbox" v-model="termsState"  @change="handleTermsState">
+                    <span class="subscription__checkmark checkmark"></span>
+                  </label>
+                    <p class="subscription__checkbox-text">I agree to <a class="subscription__terms">terms of service</a></p>        
+                </div>
+              </form>
+            </div>
+    
+            <div class="media">
+              <ul class="media__social-list">
+                <li class="media__social-item">
+                  <a class="media__social-link" href="#">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class="media__social-item">
+                  <a class="media__social-link" href="#">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+                <li class="media__social-item">
+                  <a class="media__social-link" href="#">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="media__social-item">
+                  <a class="media__social-link" href="#">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      
+      </div>
+
+
+      <div class="test">
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://kit.fontawesome.com/2541f63008.js" crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
